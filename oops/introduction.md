@@ -17,7 +17,7 @@ A class is a template that defines the data (attributes) and behaviors (the meth
 An object is a runtime instance of a class. A class can thus be instantiated multiple times and all the resultant objects will be different each having their own state.
 
 ```warning
-The term object is used to define a runtime instance of a class which is different than the class `java.lang.Object` which acts as a parent to all the instances in java.
+The term **object** is used to define a runtime instance of a class which is different than the class `java.lang.Object` which acts as a parent to all the instances in java.
 ```
 
 ## What are the features of OOPs?
