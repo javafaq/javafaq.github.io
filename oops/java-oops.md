@@ -128,3 +128,23 @@ Child c = new Child();
 p.callMe(); // parent: callMe
 c.callMe(); // child: callMe
 ```
+
+## What are the different types of association between objects?
+
+As java promotes code re-use, **association** is a way to achieve the same where objects use different types of relationships among them to achieve some goal. Following are the types of assocation:
+
+1. **One to One**: A **Library** has **one** librarian.
+2. **One to Many**: A **Library** has many **Books**.
+3. **Many to One**: Many **books** are housed in a **library**.
+4. **Many to Many**: Many **books** can have multiple **authors**.
+
+## How do we achieve association?
+
+Association is the way multiple java objects interact with each other. We can achieve the same using either of the following methods:
+
+- **Aggregation**: It represents a **has-a** relationship where an object contains a reference to other object which can exist independently as well.
+- **Composition**: It represents a **part-of** relationshiop where an object is part of the state of other object and cannot exist independently.
+
+```tip
+Composition represents a stronger association as comnpared aggregation.
+```
