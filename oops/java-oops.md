@@ -50,4 +50,81 @@ john.getFirstName(); // access state
 
 ## What is inheritence in java?
 
-The concept of **inheritence** allows an object to inherit state and behavior from another class promoting code reusability and modularization.
+The concept of **inheritence** allows an object to inherit state and behavior from another class promoting code reusability and modularization. Consider the following example:
+
+```java
+class Calculator{
+    int result;
+
+    public int add(int first, int second){
+        result = first + second;
+        return result; // return first + second; should be used but assigning it to result for the sake of example
+    }
+
+    public int subtract(int first, int second){
+        result = first - second;
+        return result;
+    }
+}
+
+class ExtendedCalculator extends Calculator{
+    public int multiply(int first, int second){
+        result = first * second; // result is inherited from parent Calculator
+        return result;
+    }
+}
+
+Calculator calculator = new Calculator();
+ExtendedCalculator extendedCalculator = new ExtendedCalculator();
+
+calculator.add(2,3); // 5
+calculator.subtract(5,3); // 2
+extendedCalculator.add(2,3) // 5 - inherited behavior
+extendedCalculator.subtract(2,3) // 2 - inherited behavior
+extendedCalculator.multiply(2,3) // 6
+```
+
+The `extendedCalculator` inherits both `add` and `subtract` methods from its parent class `Calculator`. It also inherits the `result` field from its parent. In addition to these, it has its own method `multiply`.
+
+## What are the restrictions associated with inheritence in java?
+
+Java inheritence follows the following rules:
+
+1. Multiple inheritence is not supported i.e. a class cannot inherit from more than 1 class. This is to avoid **diamond problem**.
+2. Private members (fields and methods) do NOT participate in inheritence. Any method in the child class with the same signature as of a private method in the parent class, is NOT overriding the parent class method as it was not even inherited from parent class.
+3. Constructor(s) as well do NOT participate in inheritence. But when an instance of a child class is created, the parent constructor is automatically invoked so that the child instance can inherit appropriate state and behavior.
+4. Cyclic inheritence is not allowed.
+
+## What is polymorphism?
+
+Used to provide different behaviors for the same type. Java provides two features to support this concept:
+
+1. Method overloading
+2. Method overriding
+
+```java
+class Parent{
+    public void callMe(){
+        System.out.println("parent: callMe");
+    }
+
+    // overloaded method
+    public void callMe(String args){
+        System.out.println("parent: callMe with: " + args);
+    }
+}
+
+class Child extends Parent{
+    // overridden method
+    public void callMe(){
+        System.out.println("child: callMe");
+        
+    }
+}
+
+Parent p = new Parent();
+Child c = new Child();
+
+p.callMe(); // parent: callMe
+c.callMe(); // child: callMe
+```
