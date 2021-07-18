@@ -126,7 +126,78 @@ Parent p = new Parent();
 Child c = new Child();
 
 p.callMe(); // parent: callMe
+p.callMe("hello"); // parent: callMe with: hello
 c.callMe(); // child: callMe
+c.callMe("world"); // parent: callMe with: world
+```
+
+`c.callMe("world")` resolves to the inherited overloaded method in the `Child` class.
+
+## What is the difference between early vs late binding?
+
+The code binding which can be decided at compile time is known as **early binding**. As mentioned above private and static fields/methods do not participate in inheritence, those are bound at compile time. On the other hand all other members are resolved at runtime also known as **late binding**.
+
+Consider the following example:
+
+```java
+class Parent{
+    public void instanceMethod(){
+        System.out.println("parent: instanceMethod");
+    }
+
+    public static void staticMethod(){
+        System.out.println("parent: staticMethod");
+    }
+}
+
+class Child extends Parent{
+    public void instanceMethod(){
+        System.out.println("child: instanceMethod");
+    }
+}
+
+Parent parentReference = new Child();
+// late or runtime binding
+parentReference.instanceMethod(); // child: instanceMethod
+// early or static binding
+parentReference.staticMethod(); // parent: staticMethod
+```
+
+## What is the difference between method hiding and overriding?
+
+1. Method overriding is when a non-static method is re-defined in a child class and depending on the instance on which it is called, run-time polymorphism decides which definition is to be used (parent or child).
+2. Method hiding is for static or private members that do not participate in inheritence. When such methods are re-defined in child classes, the ones in the parent class are simply hidden.
+
+Consider the following example:
+
+```java
+class Parent{
+    public void instanceMethod(){
+        System.out.println("parent: instanceMethod");
+    }
+
+    public static void staticMethod(){
+        System.out.println("parent: staticMethod");
+    }
+}
+
+class Child extends Parent{
+    public void instanceMethod(){
+        System.out.println("child: instanceMethod");
+    }
+
+    public static void staticMethod(){
+        System.out.println("child: staticMethod");
+    }
+}
+
+Parent parentReference = new Child();
+Child childReference = new Child();
+
+parentReference.instanceMethod(); // child: instanceMethod
+parentReference.staticMethod(); // parent: staticMethod
+childReference.instanceMethod(); // child: instanceMethod
+childReference.staticMethod(); // child: staticMethod
 ```
 
 ## What are the different types of association between objects?
