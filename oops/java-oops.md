@@ -200,6 +200,8 @@ childReference.instanceMethod(); // child: instanceMethod
 childReference.staticMethod(); // child: staticMethod
 ```
 
+You can check [this](https://coderanch.com/wiki/659959/Overriding-Hiding) page for more details.
+
 ## What are the different types of association between objects?
 
 As java promotes code re-use, **association** is a way to achieve the same where objects use different types of relationships among them to achieve some goal. Following are the types of assocation:
