@@ -56,7 +56,7 @@ To achieve encapsulation, the fields are given minimum visibility scope (ex: pri
 
 ## What are the different types of methods in java?
 
-1. **static methods**: These are not associated with any instance of the class and are called using the `ClassName.methodName` convention. Post java8, interfaces can also have static methods. In case of interface static methods, the implementation classes can call those using `InterfaceName.methodName` convention.
+1. **static methods**: These are not associated with any instance of the class and are called using the `ClassName.methodName` convention. Post java8, interfaces can also have static methods. In case of interface static methods, the implementation classes can call those using `InterfaceName.methodName` convention only.
 2. **abstract methods**: A method marked with `abstract` keyword that does not have any body is termed as an abstract method. An abstract method can only be mentioned in an abstract class, but a class marked as abstract can have **zero-or-more** abstract methods.
 3. **final methods**: A method marked as `final` can not be overridden by the child classes. This allows strict implementation contracts to be followed.
 4. **default methods**: Introduced in java8, an interface can have as many default methods without violating the contract with any of the implementation classes. In case of a class implementing multiple interfaces with same default method signature, the implementing class should explicitly specify which default method is to be used or it should override the default method.
