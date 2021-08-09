@@ -48,6 +48,23 @@ Employee jane = new Employee("Jane", "Doe");
 john.getFirstName(); // access state
 ```
 
+## What is encapsulation in java?
+
+It is the structure that couples the data (also known as state) and code that can modify the data into a single unit. In java, this is acheived using `class` as the unit of code.
+
+To achieve encapsulation, the fields are given minimum visibility scope (ex: private) and the public methods are provided to access or update the fields. This allows us to put more control (if required) for field access or modification.
+
+## What are the different types of methods in java?
+
+1. **static methods**: These are not associated with any instance of the class and are called using the `ClassName.methodName` convention. Post java8, interfaces can also have static methods. In case of interface static methods, the implementation classes can call those using `InterfaceName.methodName` convention.
+2. **abstract methods**: A method marked with `abstract` keyword that does not have any body is termed as an abstract method. An abstract method can only be mentioned in an abstract class, but a class marked as abstract can have **zero-or-more** abstract methods.
+3. **final methods**: A method marked as `final` can not be overridden by the child classes. This allows strict implementation contracts to be followed.
+4. **default methods**: Introduced in java8, an interface can have as many default methods without violating the contract with any of the implementation classes. In case of a class implementing multiple interfaces with same default method signature, the implementing class should explicitly specify which default method is to be used or it should override the default method.
+
+```warning
+Please note a difference between inherited static (class) methods and inherited non-static (instance) methods, that when you write a new static method with the same signature, the old static method is just hidden, not overridden.
+```
+
 ## What is inheritence in java?
 
 The concept of **inheritence** allows an object to inherit state and behavior from another class promoting code reusability and modularization. Consider the following example:
@@ -99,8 +116,8 @@ Java inheritence follows the following rules:
 
 Used to provide different behaviors for the same type. Java provides two features to support this concept:
 
-1. Method overloading
-2. Method overriding
+1. Method overloading - also known as compile time polymorphism or static or early binding.
+2. Method overriding - also known as runtime polymorphism or dynamic or late binding.
 
 ```java
 class Parent{
@@ -135,7 +152,9 @@ c.callMe("world"); // parent: callMe with: world
 
 ## What is the difference between early vs late binding?
 
-The code binding which can be decided at compile time is known as **early binding**. As mentioned above private and static fields/methods do not participate in inheritence, those are bound at compile time. On the other hand all other members are resolved at runtime also known as **late binding**.
+The code binding which can be decided at compile time (based on the method signature) is known as **early binding**. Example: method overloading.
+
+On the other hand all other members are resolved at runtime via the actual object. This is known as **late binding** or runtime polymorphism. Example: method overriding.
 
 Consider the following example:
 
