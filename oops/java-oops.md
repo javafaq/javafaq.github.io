@@ -185,7 +185,7 @@ parentReference.staticMethod(); // parent: staticMethod
 ## What is the difference between method hiding and overriding?
 
 1. Method overriding is when a non-static method is re-defined in a child class and depending on the instance on which it is called, run-time polymorphism decides which definition is to be used (parent or child).
-2. Method hiding is for static or private members that do not participate in inheritence. When such methods are re-defined in child classes, the ones in the parent class are simply hidden.
+2. Method hiding is for static members that do not participate in inheritence (although available in child classes). When such methods are re-defined in child classes, the ones in the parent class are simply hidden.
 
 Consider the following example:
 
