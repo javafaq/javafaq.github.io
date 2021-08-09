@@ -34,7 +34,13 @@ The `Employee` class mentioned above contains two attributes **firstName** and *
 
 ## What is an object?
 
-An object is a runtime instance of a class. A class can thus be instantiated multiple times and all the resultant objects will be different each having their own state. The **state** of an object is defined by the current value of the class fields (if any).
+An object is a runtime instance of a class. An object or instance of a class is created using a special method known as `constructor` method. If you have not provided a default constructor (non-parameterized constructor), the runtime environment creates one for you.
+
+```tip
+A constructor method cannot be marked as **final**. But we can have multiple constructors that vary in terms of the method signature.
+```
+
+A class can thus be instantiated multiple times and all the resultant objects will be different each having their own state. The **state** of an object is defined by the current value of the class fields (if any).
 
 The methods defined in a class when called on an object can be used to:
 
@@ -57,8 +63,11 @@ To achieve encapsulation, the fields are given minimum visibility scope (ex: pri
 ## What are the different types of methods in java?
 
 1. **static methods**: These are not associated with any instance of the class and are called using the `ClassName.methodName` convention. Post java8, interfaces can also have static methods. In case of interface static methods, the implementation classes can call those using `InterfaceName.methodName` convention only.
+   1. Static methods cannot access other **non-static** members directly.
+   2. `this` and `super` are not available in static context.
+   3. As these are associated with a class and not with any specific instance, these cannot be overridden.
 2. **abstract methods**: A method marked with `abstract` keyword that does not have any body is termed as an abstract method. An abstract method can only be mentioned in an abstract class, but a class marked as abstract can have **zero-or-more** abstract methods.
-3. **final methods**: A method marked as `final` can not be overridden by the child classes. This allows strict implementation contracts to be followed.
+3. **final methods**: A method marked as `final` can not be overridden by the child classes. This allows strict implementation contracts to be followed. This is actually the inverse of abstract methods.
 4. **default methods**: Introduced in java8, an interface can have as many default methods without violating the contract with any of the implementation classes. In case of a class implementing multiple interfaces with same default method signature, the implementing class should explicitly specify which default method is to be used or it should override the default method.
 
 ```warning
@@ -152,7 +161,7 @@ c.callMe("world"); // parent: callMe with: world
 
 ## What is the difference between early vs late binding?
 
-The code binding which can be decided at compile time (based on the method signature) is known as **early binding**. Example: method overloading.
+The code binding which can be decided at compile time (like fields and static members) is known as **early binding**. Example: method overloading.
 
 On the other hand all other members are resolved at runtime via the actual object. This is known as **late binding** or runtime polymorphism. Example: method overriding.
 
@@ -160,6 +169,7 @@ Consider the following example:
 
 ```java
 class Parent{
+    public int test=10;
     public void instanceMethod(){
         System.out.println("parent: instanceMethod");
     }
@@ -170,17 +180,28 @@ class Parent{
 }
 
 class Child extends Parent{
+    public int test=100;
     public void instanceMethod(){
         System.out.println("child: instanceMethod");
+    }
+
+    public static void staticMethod(){
+        System.out.println("child: staticMethod");
     }
 }
 
 Parent parentReference = new Child();
+Child childReference = new Child();
 // late or runtime binding
 parentReference.instanceMethod(); // child: instanceMethod
 // early or static binding
 parentReference.staticMethod(); // parent: staticMethod
+// early or static binding
+System.out.println(parentReference.test); //10
+System.out.println(childReference.test); //100
 ```
+
+Similar to static members, any non-static field members are also resolved at compile time and can't be overridden. If re-defined, the previous value is simply hidden.
 
 ## What is the difference between method hiding and overriding?
 

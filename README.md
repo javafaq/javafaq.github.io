@@ -17,7 +17,6 @@ The answers are thoroughly tested and analysed before posting on the platform. W
 - [Generics](/generics/)
 - [Serialization and Deserialization](/serialization-deserialization/)
 
-
 ## Contact
 
 If you have any suggestions or concerns about the content of this site, please drop a one liner at [this](mailto:sumit@javafaq.net) email to start a converstation.

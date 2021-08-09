@@ -26,3 +26,7 @@ The term **object** is used to define a runtime instance of a class which is dif
 - **Abstraction**: is the techqniue of hiding details via visibility scope using **public**, **protected**, **private**, **default** modifiers. It allows the developers to expose only high level details, keeping the low level implementation details private.
 - **Inheritence**: allows the arrangement of components(classes, interface, etc.) in hierarchical order which result in sharing of data and behaviour from parent to child classes. This promotes reusing the existing components by extending and creating child components.
 - **Polymorphism**: it litteraly means "many forms". Using polymorphism, we can define one contract (say an interface method) and can provide its multiple implementations which can be resolved at runtime depending on the obejct being used.
+
+```tip
+**Abstraction** hides the implementation details whereas **Encapsulation** wraps code and data into a single unit.
+```
