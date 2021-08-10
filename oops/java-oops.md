@@ -259,5 +259,5 @@ Association is the way multiple java objects interact with each other. We can ac
 - **Composition**: It represents a **part-of** relationshiop where an object is part of the state of other object and cannot exist independently.
 
 ```tip
-Composition represents a stronger association as comnpared aggregation.
+**Composition** represents a stronger association as compared to **aggregation**.
 ```
