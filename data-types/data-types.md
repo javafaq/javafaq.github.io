@@ -17,16 +17,16 @@ There are two types of data types in java programming language:
 
 The following is the details of various primitive data types:
 
-|   Type  | Bits | Bytes |   Min  |    Max   | Default |
-|:-------:|:----:|:-----:|:------:|:--------:|:-------:|
-| byte    | 8    | 1     | -28-1  | 28-1-1   | 0       |
-| short   | 16   | 2     | -216-1 | 216-1-1  | 0       |
-| int     | 32   | 4     | -232-1 | 232-1-1  | 0       |
-| long    | 64   | 8     | -264-1 | 264-1-1  | 0       |
-| float   | 32   | 4     | >NA    | NA       | 0.0f    |
-| double  | 64   | 8     | NA     | NA       | 0.0d    |
-| boolean | 1    | NA    | NA     | NA       | false   |
-| char    | 16   | NA    | NA     | NA       | ''      |
+|   Type  | Bits | Bytes |   Min         |    Max          | Default |
+|:-------:|:----:|:-----:|:-------------:|:---------------:|:-------:|
+| byte    | 8    | 1     | \(-2^{8-1}\)  | \(-2^{8-1} -1\) | 0       |
+| short   | 16   | 2     | \(-2^{16-1}\) | \(-2^{16-1} -1\)| 0       |
+| int     | 32   | 4     | \(-2^{32-1}\) | \(-2^{32-1} -1\)| 0       |
+| long    | 64   | 8     | \(-2^{64-1}\) | \(-2^{64-1} -1\)| 0       |
+| float   | 32   | 4     | >NA           | NA              | 0.0f    |
+| double  | 64   | 8     | NA            | NA              | 0.0d    |
+| boolean | 1    | NA    | NA            | NA              | false   |
+| char    | 16   | NA    | NA            | NA              | ''      |
 
 ## What are wrapper classes?
 
