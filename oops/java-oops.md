@@ -106,7 +106,7 @@ ExtendedCalculator extendedCalculator = new ExtendedCalculator();
 calculator.add(2,3); // 5
 calculator.subtract(5,3); // 2
 extendedCalculator.add(2,3) // 5 - inherited behavior
-extendedCalculator.subtract(2,3) // 2 - inherited behavior
+extendedCalculator.subtract(2,3) // -1 - inherited behavior
 extendedCalculator.multiply(2,3) // 6
 ```
 
