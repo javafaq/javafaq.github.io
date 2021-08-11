@@ -103,10 +103,27 @@ Object castedName = (Object) name;
 System.out.println(castedName.hashCode()); // some hashcode is printed 
 ```
 
+## What is upcasting and downcasting?
+
+For primtive types, **upcasting** is when a smaller type is assigned to a wider range type like a `short` value assigned to `int` variable. For objects or non-primitive types, it means when a subclass is assigned to any of its parent types like a `String` value assigned to a reference of type `Object`.
+
+**Downcasting** is the reverse of upcasting. For primitives, it means when a wider type is assigned to a smaller range type like an `int` value assigned to a `short` variable. For non-primitive types, this means assigning a super type instance to one of its specific child types.
+
+Downcasting for primitives might lead to loss of information or truncation(see previous question for the details). For non-primitive types, if casted between un-supported types, it can lead to `ClassCastException`:
+
+```java
+Integer integer = Integer.valueOf(5);
+Object parent = integer; // upcasting
+String child = (String) parent; // downcasting
+
+// java.lang.ClassCastException: class java.lang.Integer cannot be cast to class java.lang.String
+System.out.println(child.toLowerCase());
+```
+
 ## Arrays vs Collection Classes?
 
 1. Collections support generic types for strict compile time checks whereas Arrays do not support the same.
 2. Arrays are of fixed size whereas collection classes can grow dynamically.
 3. Arrays can store both primtive as well as non-primitive (Objects) types whereas collection classes only support non-primitive types.
 4. Collection classes provide a lot of utility methods to manipulate the underlying data structure.
-5. Depending on the underlyinng data structure, the data in a collection can be stored lineraly or non-lineraly whereas arrays only support linear data storage.
+5. Depending on the underlyinng data structure, the data in a collection can be stored linearly or non-linearly whereas arrays only support linear data storage.
