@@ -109,7 +109,7 @@ For primtive types, **upcasting** is when a smaller type is assigned to a wider 
 
 **Downcasting** is the reverse of upcasting. For primitives, it means when a wider type is assigned to a smaller range type like an `int` value assigned to a `short` variable. For non-primitive types, this means assigning a super type instance to one of its specific child types.
 
-Downcasting for primitives might lead to loss of information or truncation(see previous question for the details). For non-primitive types, if casted between un-supported types, it can lead to `ClassCastException`:
+Downcasting for primitives might lead to loss of information or truncation (see previous question for the details). For non-primitive types, if casted between un-supported types, it can lead to `ClassCastException`:
 
 ```java
 Integer integer = Integer.valueOf(5);
