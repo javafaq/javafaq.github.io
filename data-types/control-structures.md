@@ -10,13 +10,9 @@ Control structures are **statements** or **blocks** that are used to alter the e
 2. **Loop Blocks**: for, while, do-while.
 3. **Control Statements**: break, continue.
 
-## Explain various conditional statements and blocks in java
+## Conditional Statements in java
 
-The conditional statements are used to change the execution flow based on the validity of some condition.
-
-### if, if-else
-
-The **if** and **if-else** statements are used to define an execution path or an alternate flow depending on the validity of an underlying expression:
+The conditional statements are used to change the execution flow based on the validity of some condition. The **if** and **if-else** statements are used to define an execution path or an alternate flow depending on the validity of an underlying expression:
 
 ```java
 private String weekEndOrWeekDay(String day){
@@ -27,8 +23,6 @@ private String weekEndOrWeekDay(String day){
     }
 }
 ```
-
-## switch block
 
 **Switch** block is used to declutter the **if-else** block especially when the number of **if-else** statements is large. Implementing the same example as a **switch** block:
 
@@ -41,9 +35,7 @@ private String weekEndOrWeekDay(String day){
 }
 ```
 
-## Ternary expression
-
-The ternary expression is the most tidy one out of all the conditional statements. But due to its nature, it becomes difficult to read if multiple conditions are nested one inside other.
+The **ternary expression** is the most tidy one out of all the conditional statements. But due to its nature, it becomes difficult to read if multiple conditions are nested one inside other.
 
 ```java
 private String weekEndOrWeekDay(String day){
