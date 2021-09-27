@@ -17,16 +17,16 @@ There are two types of data types in java programming language:
 
 The following is the details of various primitive data types:
 
-|   Type  | Bits | Bytes |   Min  |    Max   | Default |
-|:-------:|:----:|:-----:|:------:|:--------:|:-------:|
-| byte    | 8    | 1     | -28-1  | 28-1-1   | 0       |
-| short   | 16   | 2     | -216-1 | 216-1-1  | 0       |
-| int     | 32   | 4     | -232-1 | 232-1-1  | 0       |
-| long    | 64   | 8     | -264-1 | 264-1-1  | 0       |
-| float   | 32   | 4     | >NA    | NA       | 0.0f    |
-| double  | 64   | 8     | NA     | NA       | 0.0d    |
-| boolean | 1    | NA    | NA     | NA       | false   |
-| char    | 16   | NA    | NA     | NA       | ''      |
+|   Type                                         | Bits | Bytes |   Min            |    Max          | Default |
+|:----------------------------------------------:|:----:|:-----:|:----------------:|:---------------:|:-------:|
+| byte                                           | 8    | 1     | $$-2^{8-1}$$     | $$2^{8-1} -1$$  | 0       |
+| short                                          | 16   | 2     | $$-2^{16-1}$$    | $$2^{16-1} -1$$ | 0       |
+| int                                            | 32   | 4     | $$-2^{32-1}$$    | $$2^{32-1} -1$$ | 0       |
+| long                                           | 64   | 8     | $$-2^{64-1}$$    | $$2^{64-1} -1$$ | 0L      |
+| float                                          | 32   | 4     | -Float.MAX_VALUE | Float.MAX_VALUE | 0.0f    |
+| double                                         | 64   | 8     | -Double.MAX_VALUE| Double.MAX_VALUE| 0.0d    |
+| boolean                                        | 1    | NA    | NA               | NA              | false   |
+| [char](https://stackoverflow.com/a/5078365)    | 16   | 2     | 0                | 65,535          | '\u0000'|
 
 ## What are wrapper classes?
 
@@ -68,3 +68,62 @@ In call by value, values of actual parameters are copied to method's formal para
 ```tip
 Java is always **pass by value**. It also passes references to objects by value. Refer to [this](https://stackoverflow.com/questions/40480/is-java-pass-by-reference-or-pass-by-value) link for more details.
 ```
+
+## What is type casting?
+
+It helps us to assign value of a given type to variable of another type. Casting is applicable to both primitive and non-primitive data types.
+
+In case of primitive data types, this might lead to loss of information depending on the allowed value range:
+
+```java
+int integerValue  = 32767;
+short shortValue;
+shortValue = (short) integerValue; // casting
+
+System.out.println(integerValue); // 32727
+System.out.println(shortValue); // 32767
+
+// update the integer value to cross the short range
+int integerValue  = 32768;
+short shortValue;
+shortValue = (short) integerValue;
+
+System.out.println(integerValue); // 32768
+System.out.println(shortValue); // -32768
+```
+
+In case of object type casting, the allowed methods are of the target type:
+
+```java
+String name = "JAVA FAQ";
+System.out.println(name.toLowerCase()); // java faq
+
+Object castedName = (Object) name;
+// methods from Object class available on castedName; no method from String class available here
+System.out.println(castedName.hashCode()); // some hashcode is printed 
+```
+
+## What is upcasting and downcasting?
+
+For primtive types, **upcasting** is when a smaller type is assigned to a wider range type like a `short` value assigned to `int` variable. For objects or non-primitive types, it means when a subclass is assigned to any of its parent types like a `String` value assigned to a reference of type `Object`.
+
+**Downcasting** is the reverse of upcasting. For primitives, it means when a wider type is assigned to a smaller range type like an `int` value assigned to a `short` variable. For non-primitive types, this means assigning a super type instance to one of its specific child types.
+
+Downcasting for primitives might lead to loss of information or truncation (see previous question for the details). For non-primitive types, if casted between un-supported types, it can lead to `ClassCastException`:
+
+```java
+Integer integer = Integer.valueOf(5);
+Object parent = integer; // upcasting
+String child = (String) parent; // downcasting
+
+// java.lang.ClassCastException: class java.lang.Integer cannot be cast to class java.lang.String
+System.out.println(child.toLowerCase());
+```
+
+## Arrays vs Collection Classes?
+
+1. Collections support generic types for strict compile time checks whereas Arrays do not support the same.
+2. Arrays are of fixed size whereas collection classes can grow dynamically.
+3. Arrays can store both primtive as well as non-primitive (Objects) types whereas collection classes only support non-primitive types.
+4. Collection classes provide a lot of utility methods to manipulate the underlying data structure.
+5. Depending on the underlyinng data structure, the data in a collection can be stored linearly or non-linearly whereas arrays only support linear data storage.

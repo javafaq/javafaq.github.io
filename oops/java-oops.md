@@ -106,7 +106,7 @@ ExtendedCalculator extendedCalculator = new ExtendedCalculator();
 calculator.add(2,3); // 5
 calculator.subtract(5,3); // 2
 extendedCalculator.add(2,3) // 5 - inherited behavior
-extendedCalculator.subtract(2,3) // 2 - inherited behavior
+extendedCalculator.subtract(2,3) // -1 - inherited behavior
 extendedCalculator.multiply(2,3) // 6
 ```
 
@@ -259,5 +259,5 @@ Association is the way multiple java objects interact with each other. We can ac
 - **Composition**: It represents a **part-of** relationshiop where an object is part of the state of other object and cannot exist independently.
 
 ```tip
-Composition represents a stronger association as comnpared aggregation.
+**Composition** represents a stronger association as compared to **aggregation**.
 ```
