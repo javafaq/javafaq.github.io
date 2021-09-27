@@ -105,7 +105,7 @@ private static void firstFiveMultiples(int number){
 
 In the above example, we are using the same loop condition as mentioned above. But here we have added an additional check that will `break` the loop after 5 iterations for `i > 25`.
 
-The **continue** statement is used to skip a specific iteration out of all the iterations. For example, consider the following code snippet:
+The **continue** statement is used to skip a specific iteration out of all the iterations. For example, consider the following code snippet. The `continue` statement for `i==25` will lead to the specific result being skipped from the output:
 
 ```java
 private static void firstFiveMultiples(int number){
@@ -117,5 +117,79 @@ private static void firstFiveMultiples(int number){
             System.out.println(number * i);
         }
     }
+}
+```
+
+## Java enhanced for each loop
+
+The enhanced `for` loop introduced in java5 allows us to iterate over arrays and collections without the need of explicitly declaring a loop variable.
+
+```java
+String[] fruits = new String[] { "Orange", "Mango", "Apple", "Grapes" };
+for (String fruit : fruits) {
+    System.out.println(fruit);
+}
+```
+
+which is equivalent to:
+
+```java
+String[] fruits = new String[] { "Orange", "Mango", "Apple", "Grapes" };
+for(int i = 0; i < fruits.length; i++){
+    System.out.println(fruits[i]);
+}
+```
+
+## Benefits of enhaned for loop
+
+1. It promotes code readability.
+2. It is more tidy as compared to traditional for loop construct.
+3. It ensures that all the elements are traversed and avoids any unexpected results due to incorrect termination condition.
+
+## Disadvantages of enhanced for loop
+
+1. It cannnot be used to traverse the collection in reverse order.
+2. It cannot be used to skip some elements (example, only process event or odd elements).
+
+## Can we skip a break clause in switch block?
+
+Yes, we can skip a `break` clause. But it will cause all the `case` blocks or `default` block to execute after first matching `case` block. Consider the following example:
+
+```java
+// assuming day = "Saturday"
+private void weekEndOrWeekDay(String day){
+    switch(day){
+        case "Saturday", "Sunday" : {
+            // this will be printed
+            System.out.println("Weekend");
+        }
+        default: {
+            // this will also be printed
+            System.out.println("Weekday");
+        }
+    }
+}
+```
+
+## Difference between dead code and unreachable code
+
+The **dead code** is something that has no effect on the state of the program. For example, a few statements are executed but the results are not used:
+
+```java
+private void deadCode(int first, int second){
+    int result = first + second;
+}
+```
+
+Dead code is generally highlighted as a warning by the compiler.
+
+On the other hand, **un-reachable** code - a compile time error denotes a flaw in the execution flow such that the code cannot be executed by following any path:
+
+```java
+private void deadCode(int first, int second){
+    return;
+    // compile time error; un-reachable code
+    int result = first + second;
+    System.out.println(result);
 }
 ```
