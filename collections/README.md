@@ -70,3 +70,30 @@ List<String> fruits = Arrays.asList("Apple", "Orange", "Mango", "Banana");
 Collections.sort(fruits); // [Apple, Banana, Mango, Orange]
 Collections.sort(fruits, Collections.reverseOrder()); // [Orange, Mango, Banana, Apple]
 ```
+
+## How to increase or decrease the capacity of ArrayList ?
+
+1. `ensureCapacity(int)` : The capacity of an array list is automatically increased when we try to add more elements than the current capacity using the private `grow()` method. However, another utility method is provided to do it manually.
+2. `trimToSize()` : used to trim the **capacity** of arrayList to the current **size** of ArrayList.
+
+## How to get SubList from ArrayList ?
+
+The `subList(from, to)` method from List interface can be used for generating a sublist from an original list.
+
+## How HashSet eliminates duplicate values ?
+
+1. `HashSet` internally uses `HashMap` for storing data, what it means is, when HashSet’s `add("E e")` method is called, add method internally calls `HashMap#put(key, value)` method with some **dummy** value (an `Object` instance named `PRESENT`).
+2. Once `HashMap#put(key, value)` method is invoked, it stores the **data(key-value pair)** in bucket:
+   1. By first evaluating hashcode of **key**
+   2. Then identifies exact bucket
+   3. and finally `equals` comparison of the **key** to store and the key of already stored key-value pairs in the list (if present).
+   4. If **key** is already present, then it replaces the old value, with new value and returns old value.
+   5. returns `null` otherwise
+
+Depending on the response from the `HashMap#put(key, value)`, a `true` or `false` is returned denoting a duplicate entry.
+
+## What is the significance of Collections.emptySet() over new HashSet<>()?
+
+1. **Immutable** : The immutable result produced via `Collections.emptySet()` is inline with the intention of the programmer who wanted an empty set instead of a `null` value. A hashset generated using `new HashSet<>` can be populated with value which might not align with the context.
+2. **Type Safety** : The type safety is ensured from the context without having to manually add generic type details.
+3. **Reuse** : A singleton empty instance (ensured via immutability) is used wherever asked for. Thus this avoid crrreating unnecessary objects.
