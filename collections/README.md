@@ -45,3 +45,28 @@ The newly added element could be added **out of the order** depending on the und
 1. `Iterator` can be used to traverse all the collection classes. `ListIterator` is specefic to the Lists only.
 2. `ListIterator` can be used to travese the underlying list in either direction.
 3. `ListIterator` support insertion of elements as well.
+
+## What is fail-fast iteration?
+
+1. The **fail-fast** iteration aborts the current iteration by throwing a `ConcurrentModificationException` as soon as a modification to the underlying collection is detected.
+2. An instance field `modCount` is used to track the number of structural changes (add, remove elements) to the collection.
+3. As soon as any un-expected changes to `modCount` are detected by the Iterator, `ConcurrentModificationException` is thrown to highlight the same.
+4. Except for concurrent collections (`ConcurrentHashMap`, `CopyOnWriteArrayList`), all the `Iterable` classes support fail-fast iteration.
+
+## What are different iteration strategies?
+
+1. Fail Fast
+2. Weakly Consistent
+3. Snapshot
+
+## What are Comparable and Comparator interface?
+
+The `Comparable` interface allows any implementation class to provide default comparison strategy which is required for sorting and related operations. The strategy defined by `Comparable` is static and cannot be changed at runtime (for example inclusion of some additional attribute for comparsion).
+
+The `Comparator` interface allows us to define a comparsion strategy that we can inject at runtime while performing various sorting operations. Consider the following example:
+
+```java
+List<String> fruits = Arrays.asList("Apple", "Orange", "Mango", "Banana");
+Collections.sort(fruits); // [Apple, Banana, Mango, Orange]
+Collections.sort(fruits, Collections.reverseOrder()); // [Orange, Mango, Banana, Apple]
+```
