@@ -2,7 +2,8 @@ title: JavaFAQ
 lang: en
 description: a collection of frequently asked questions on various java topics.
 
-remote_theme: rundocs/jekyll-rtd-theme
+# remote_theme: rundocs/jekyll-rtd-theme
+remote_theme: just-the-docs/just-the-docs
 
 readme_index:
     with_frontmatter: true
